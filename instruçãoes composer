@@ -1,0 +1,23 @@
+composer init //inicar composer
+composer install // criar pasta vendor
+composer update // atualizar dependencias
+composer require monolog/monolog // instalar dependecia
+composer dump-autoload // recarregar configuração do .json
+
+composer require phpunit/phpunit --dev //instalar dependecia no dev
+composer update --no-dev//baixar dependecias exceto as DEVS
+
+
+//AUTO LOAD
+    "autoload": {
+        "files": [
+            "app/Helpers/functions.php"
+        ],
+        "classmap": [
+            "ClassUtils/"
+        ],
+        "psr-4": {
+            "CURSO\\": "src/curso/",
+            "App\\": "app/"
+        }
+    }
