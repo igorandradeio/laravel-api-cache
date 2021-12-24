@@ -5,6 +5,8 @@ use App\Http\Controllers\Api\{
 };
 use Illuminate\Support\Facades\Route;
 
+Route::delete('/categories/{uuid}', [CategoryController::class, 'destroy']);
+
 Route::get('/categories/{uuid}', [CategoryController::class, 'show']);
 
 Route::post('/categories', [CategoryController::class, 'store']);

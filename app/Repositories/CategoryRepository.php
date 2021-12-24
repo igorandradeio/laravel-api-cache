@@ -27,4 +27,11 @@ class CategoryRepository
     {
         return $this->entity->where('uuid', $uuid)->firstOrFail();
     }
+
+    public function deleteCategoryByUuid(string $uuid)
+    {
+        $category = $this->getCategoryByUuid($uuid);
+
+        return $category->delete();
+    }
 }
