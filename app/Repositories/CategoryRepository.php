@@ -34,4 +34,11 @@ class CategoryRepository
 
         return $category->delete();
     }
+
+    public function updateCategoryByUuid(string $uuid, array $data)
+    {
+        $category = $this->getCategoryByUuid($uuid);
+
+        return $category->update($data);
+    }
 }

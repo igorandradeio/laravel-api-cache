@@ -59,12 +59,14 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  string  $uuid
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreUpdateCategory $request, $uuid)
     {
-        //
+        $this->categoryService->updateCategory($uuid, $request->validated());
+
+        return response()->json(['message' => 'updated']);
     }
 
     /**

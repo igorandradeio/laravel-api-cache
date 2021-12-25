@@ -23,8 +23,11 @@ class StoreUpdateCategory extends FormRequest
      */
     public function rules()
     {
+
+        $uuid = $this->uuid ?? '';
+
         return [
-            'name' => ['required', 'min:3', 'max:255', 'unique:categories'],
+            'name' => ['required', 'min:3', 'max:255', "unique:categories,name,{$uuid},uuid"],
             'description' => ['nullable', 'min:3', 'max:255'],
             'image' => ['nullable', 'min:3', 'max:255'],
             'slug' => ['nullable', 'min:3', 'max:255']

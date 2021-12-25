@@ -33,4 +33,9 @@ class CategoryService
     {
         return $this->repository->deleteCategoryByUuid($uuid);
     }
+
+    public function updateCategory(string $uuid, array $data)
+    {
+        return $this->repository->updateCategoryByUuid($uuid, $data);
+    }
 }
