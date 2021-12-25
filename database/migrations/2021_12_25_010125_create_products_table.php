@@ -20,8 +20,9 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->text('image');
-            $table->timestamps();
+            $table->string('slug')->nullable()->unique();
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 
