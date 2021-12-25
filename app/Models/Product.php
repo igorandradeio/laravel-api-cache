@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
-class Category extends Model
+class Product extends Model
 {
     use HasFactory;
 
@@ -24,13 +24,13 @@ class Category extends Model
 
     protected static function booted()
     {
-        static::creating(function ($category) {
-            $category->slug = Str::of($category->name)->slug('-');
+        static::creating(function ($product) {
+            $product->slug = Str::of($product->name)->slug('-');
         });
     }
 
-    public function products()
+    public function category()
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsTo(Category::class);
     }
 }
