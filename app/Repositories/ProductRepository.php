@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Product;
+use Illuminate\Support\Facades\Cache;
 
 class ProductRepository
 {
@@ -23,6 +24,9 @@ class ProductRepository
     public function createNewProduct(int $categoryId, array $data)
     {
         $data['category_id'] = $categoryId;
+
+        Cache::forget('categories');
+
         return $this->entity->create($data);
     }
 
@@ -47,12 +51,16 @@ class ProductRepository
 
         $data['category_id'] = $categoryId;
 
+        Cache::forget('categories');
+
         return $product->update($data);
     }
 
     public function deleteProductByUuid(string $uuid)
     {
         $product = $this->getProductByUuid($uuid);
+
+        Cache::forget('categories');
 
         return $product->delete();
     }
