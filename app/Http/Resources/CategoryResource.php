@@ -23,6 +23,7 @@ class CategoryResource extends JsonResource
             'image' => $this->image,
             'slug' => $this->slug,
             'date' => Carbon::make($this->created_at)->format('Y-m-d'),
+            'products' => ProductResource::collection($this->products)
         ];
     }
 }
