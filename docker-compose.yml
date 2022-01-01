@@ -43,7 +43,7 @@ services:
         volumes: 
             - mysqldbvolume:/var/lib/mysql
         ports: 
-            - 3308:3306
+            - 3306:3306
         networks: 
             - laravel-api-network
 
