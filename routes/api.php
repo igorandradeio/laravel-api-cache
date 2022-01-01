@@ -4,7 +4,11 @@ use App\Http\Controllers\Api\{
     CategoryController,
     ProductController
 };
+use App\Http\Controllers\Auth\AuthApiController;
 use Illuminate\Support\Facades\Route;
+
+
+Route::post('/auth', [AuthApiController::class, 'authenticate']);
 
 Route::apiResource('/categories/{category}/products', ProductController::class);
 
