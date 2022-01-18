@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
         Cache::forget('categories');
 
         $category = Category::factory()->create();
@@ -23,5 +24,7 @@ class DatabaseSeeder extends Seeder
         Product::factory()->count(10)->create([
             'category_id' => $category->id
         ]);
+
+        $this->call(ResourceSeeder::class);
     }
 }
