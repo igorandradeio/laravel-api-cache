@@ -2,11 +2,11 @@
 
 use App\Http\Controllers\Api\{
     CategoryController,
-    ProductController
+    ProductController,
+    ResourceController
 };
 use App\Http\Controllers\Auth\AuthApiController;
 use Illuminate\Support\Facades\Route;
-
 
 /** User login */
 Route::post('/auth', [AuthApiController::class, 'authenticate']);
@@ -31,6 +31,8 @@ Route::middleware(['apiJWT'])->group(function () {
     Route::post('/categories', [CategoryController::class, 'store']);
     /** Get all categories */
     Route::get('/categories', [CategoryController::class, 'index']);
+    /** Get all resources */
+    Route::get('/resources', [ResourceController::class, 'index']);
 });
 
 Route::get('/', function () {
